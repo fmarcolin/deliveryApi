@@ -1,8 +1,11 @@
 defmodule DeliveryApiWeb.Router do
   use DeliveryApiWeb, :router
 
+  alias DeliveryApiWeb.Plugs.UUIDChecker
+
   pipeline :api do
     plug :accepts, ["json"]
+    plug UUIDChecker
   end
 
   scope "/api", DeliveryApiWeb do
