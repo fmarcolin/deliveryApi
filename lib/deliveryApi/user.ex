@@ -1,6 +1,9 @@
 defmodule DeliveryApi.User do
   use Ecto.Schema
+
   import Ecto.Changeset
+
+  alias DeliveryApi.Order
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -18,6 +21,8 @@ defmodule DeliveryApi.User do
     field :name, :string
     field :password_hash, :string
     field :password, :string, virtual: true
+
+    has_many :orders, Order
 
     timestamps()
   end
