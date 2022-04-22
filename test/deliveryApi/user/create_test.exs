@@ -2,13 +2,19 @@ defmodule DeliveryApi.Users.CreateTest do
   use DeliveryApi.DataCase, async: true
 
   import DeliveryApi.Factory
+  import Mox
 
   alias DeliveryApi.{Error, User}
   alias DeliveryApi.Users.Create
+  alias DeliveryApi.ViaCep.ClientMock
 
   describe "call/1" do
     test "when all params are valid, returns the user" do
       params = build(:user_params)
+
+      expect(ClientMock, :get_cep_info, fn _cep ->
+        {:ok, build(:cep_info)}
+      end)
 
       response = Create.call(params)
 

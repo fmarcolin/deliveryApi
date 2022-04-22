@@ -10,6 +10,8 @@ import Config
 config :deliveryApi,
   ecto_repos: [DeliveryApi.Repo]
 
+config :deliveryApi, DeliveryApi.Users.Create, via_cep_adapter: DeliveryApi.ViaCep.Client
+
 config :deliveryApi, DeliveryApi.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]

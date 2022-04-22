@@ -2,10 +2,17 @@ defmodule DeliveryApiWeb.UsersControllerTest do
   use DeliveryApiWeb.ConnCase, async: true
 
   import DeliveryApi.Factory
+  import Mox
+
+  alias DeliveryApi.ViaCep.ClientMock
 
   describe "create/2" do
     test "when all params are valid, creates the user", %{conn: conn} do
       params = build(:user_params)
+
+      expect(ClientMock, :get_cep_info, fn _cep ->
+        {:ok, build(:cep_info)}
+      end)
 
       response =
         conn

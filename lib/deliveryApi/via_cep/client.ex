@@ -2,9 +2,12 @@ defmodule DeliveryApi.ViaCep.Client do
   use Tesla
 
   alias DeliveryApi.Error
+  alias DeliveryApi.ViaCep.Behaviour
   alias Tesla.Env
 
   plug Tesla.Middleware.JSON
+
+  @behaviour Behaviour
 
   @base_url "https://viacep.com.br/ws/"
 
@@ -14,7 +17,7 @@ defmodule DeliveryApi.ViaCep.Client do
     |> handle_get()
   end
 
-  defp handle_get({:ok, %Env{status: 200, body: %{"erro" => "true"}}}) do
+  defp handle_get({:ok, %Env{status: 200, body: %{"erro" => true}}}) do
     {:error, Error.build(:not_found, "CEP not found")}
   end
 
