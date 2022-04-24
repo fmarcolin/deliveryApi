@@ -20,6 +20,10 @@ config :deliveryApi, DeliveryApiWeb.Auth.Guardian,
   issuer: "deliveryApi",
   secret_key: "P07rYrdNBRaxgxXbq66qYQLf48DiDohwQxb7SAa1oz32VxMC4xBdQtnUFvvnh2NU"
 
+config :deliveryApi, DeliveryApiWeb.Auth.Pipeline,
+  module: DeliveryApiWeb.Auth.Guardian,
+  error_handler: DeliveryApiWeb.Auth.ErrorHandler
+
 # Configures the endpoint
 config :deliveryApi, DeliveryApiWeb.Endpoint,
   url: [host: "localhost"],
