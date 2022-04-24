@@ -8,11 +8,13 @@ defmodule DeliveryApiWeb.UsersViewTest do
 
   test "renders create.json" do
     user = build(:user)
+    token = "1234"
 
-    response = render(UsersView, "create.json", user: user)
+    response = render(UsersView, "create.json", token: token, user: user)
 
     expected_response = %{
       message: "User created!",
+      token: "1234",
       user: %DeliveryApi.User{
         address: "Rua teste",
         age: 24,

@@ -5,6 +5,7 @@ defmodule DeliveryApiWeb.UsersControllerTest do
   import Mox
 
   alias DeliveryApi.ViaCep.ClientMock
+  alias DeliveryApiWeb.Auth.Guardian
 
   describe "create/2" do
     test "when all params are valid, creates the user", %{conn: conn} do
@@ -52,9 +53,16 @@ defmodule DeliveryApiWeb.UsersControllerTest do
   end
 
   describe "delete/2" do
+    setup %{conn: conn} do
+      user = insert(:user)
+      {:ok, token, _claims} = Guardian.encode_and_sign(user)
+      conn = put_req_header(conn, "authorization", "Bearer #{token}")
+
+      {:ok, conn: conn}
+    end
+
     test "when there is a user with the given id, deletes the user", %{conn: conn} do
       id = "b819c042-8a3b-4500-bd02-7a9aa55d3b4b"
-      insert(:user)
 
       response =
         conn
