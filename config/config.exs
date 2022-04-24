@@ -16,6 +16,10 @@ config :deliveryApi, DeliveryApi.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
+config :deliveryApi, DeliveryApiWeb.Auth.Guardian,
+  issuer: "deliveryApi",
+  secret_key: "P07rYrdNBRaxgxXbq66qYQLf48DiDohwQxb7SAa1oz32VxMC4xBdQtnUFvvnh2NU"
+
 # Configures the endpoint
 config :deliveryApi, DeliveryApiWeb.Endpoint,
   url: [host: "localhost"],
