@@ -1,5 +1,7 @@
 # DeliveryApi
 
+[![codecov](https://codecov.io/gh/fmarcolin/deliveryApi/branch/main/graph/badge.svg?token=WMRN9NYOPL)](https://codecov.io/gh/fmarcolin/deliveryApi)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
