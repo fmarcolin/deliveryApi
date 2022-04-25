@@ -15,9 +15,11 @@ defmodule DeliveryApi.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: DeliveryApi.PubSub},
       # Start the Endpoint (http/https)
-      DeliveryApiWeb.Endpoint
+      DeliveryApiWeb.Endpoint,
       # Start a worker by calling: DeliveryApi.Worker.start_link(arg)
       # {DeliveryApi.Worker, arg}
+
+      DeliveryApi.Orders.ReportRunner
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
