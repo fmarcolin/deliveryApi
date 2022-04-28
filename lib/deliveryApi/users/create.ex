@@ -16,7 +16,7 @@ defmodule DeliveryApi.Users.Create do
   end
 
   defp client do
-    :deliveryApi
+    :deliveryapi
     |> Application.fetch_env!(__MODULE__)
     |> Keyword.get(:via_cep_adapter)
   end

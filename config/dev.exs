@@ -1,7 +1,7 @@
 import Config
 
 # Configure your database
-config :deliveryApi, DeliveryApi.Repo,
+config :deliveryapi, DeliveryApi.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
@@ -15,7 +15,7 @@ config :deliveryApi, DeliveryApi.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :deliveryApi, DeliveryApiWeb.Endpoint,
+config :deliveryapi, DeliveryApiWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],

@@ -5,7 +5,7 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :deliveryApi, DeliveryApi.Repo,
+config :deliveryapi, DeliveryApi.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
@@ -13,17 +13,17 @@ config :deliveryApi, DeliveryApi.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
-config :deliveryApi, DeliveryApi.Users.Create, via_cep_adapter: DeliveryApi.ViaCep.ClientMock
+config :deliveryapi, DeliveryApi.Users.Create, via_cep_adapter: DeliveryApi.ViaCep.ClientMock
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :deliveryApi, DeliveryApiWeb.Endpoint,
+config :deliveryapi, DeliveryApiWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "b0k1JbkSYjxa54zQM1Fon5irKbkbTxPZEaOXsIUFlRM5GlqfpETl6S2iZ/nY/C03",
   server: false
 
 # In test we don't send emails.
-config :deliveryApi, DeliveryApi.Mailer, adapter: Swoosh.Adapters.Test
+config :deliveryapi, DeliveryApi.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn

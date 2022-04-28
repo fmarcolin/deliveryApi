@@ -1,12 +1,12 @@
 defmodule DeliveryApiWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :deliveryApi
+  use Phoenix.Endpoint, otp_app: :deliveryapi
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_deliveryApi_key",
+    key: "_deliveryapi_key",
     signing_salt: "cxOP08LB"
   ]
 
@@ -18,7 +18,7 @@ defmodule DeliveryApiWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :deliveryApi,
+    from: :deliveryapi,
     gzip: false,
     only: ~w(assets fonts images favicon.ico robots.txt)
 
@@ -26,7 +26,7 @@ defmodule DeliveryApiWeb.Endpoint do
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :deliveryApi
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :deliveryapi
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,

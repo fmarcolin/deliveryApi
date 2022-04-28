@@ -1,5 +1,5 @@
 defmodule DeliveryApiWeb.Auth.Guardian do
-  use Guardian, otp_app: :deliveryApi
+  use Guardian, otp_app: :deliveryapi
 
   alias DeliveryApi.{Error, User}
   alias DeliveryApi.Users.Get, as: UserGet

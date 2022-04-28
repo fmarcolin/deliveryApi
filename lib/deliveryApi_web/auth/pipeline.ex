@@ -1,5 +1,5 @@
 defmodule DeliveryApiWeb.Auth.Pipeline do
-  use Guardian.Plug.Pipeline, otp_app: :deliveryApi
+  use Guardian.Plug.Pipeline, otp_app: :deliveryapi
 
   plug Guardian.Plug.VerifyHeader
   plug Guardian.Plug.EnsureAuthenticated

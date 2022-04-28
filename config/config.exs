@@ -7,25 +7,25 @@
 # General application configuration
 import Config
 
-config :deliveryApi,
+config :deliveryapi,
   ecto_repos: [DeliveryApi.Repo]
 
-config :deliveryApi, DeliveryApi.Users.Create, via_cep_adapter: DeliveryApi.ViaCep.Client
+config :deliveryapi, DeliveryApi.Users.Create, via_cep_adapter: DeliveryApi.ViaCep.Client
 
-config :deliveryApi, DeliveryApi.Repo,
+config :deliveryapi, DeliveryApi.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
-config :deliveryApi, DeliveryApiWeb.Auth.Guardian,
-  issuer: "deliveryApi",
+config :deliveryapi, DeliveryApiWeb.Auth.Guardian,
+  issuer: "deliveryapi",
   secret_key: "P07rYrdNBRaxgxXbq66qYQLf48DiDohwQxb7SAa1oz32VxMC4xBdQtnUFvvnh2NU"
 
-config :deliveryApi, DeliveryApiWeb.Auth.Pipeline,
+config :deliveryapi, DeliveryApiWeb.Auth.Pipeline,
   module: DeliveryApiWeb.Auth.Guardian,
   error_handler: DeliveryApiWeb.Auth.ErrorHandler
 
 # Configures the endpoint
-config :deliveryApi, DeliveryApiWeb.Endpoint,
+config :deliveryapi, DeliveryApiWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: DeliveryApiWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: DeliveryApi.PubSub,
@@ -38,7 +38,7 @@ config :deliveryApi, DeliveryApiWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :deliveryApi, DeliveryApi.Mailer, adapter: Swoosh.Adapters.Local
+config :deliveryapi, DeliveryApi.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
